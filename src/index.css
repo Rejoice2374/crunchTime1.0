@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #2b2b2b;
+  --color-button: #a259ff;
+  --color-secondary: #3b3b3b;
+  --color-button-hov: #8a4fff;
+  --color-coolAsh: #858584;
+  --color-masala: #3b3b3b80;
+  --color-celeste: #cccccc;
+  --color-darkCeleste: #b3b3b3;
+  --color-blackCeleste: #2b2b2b;
+  --font-poppins: "Poppins", sans-serif;
+  --font-nunito: "Nunito Sans", sans-serif;
+  --font-roboto: "Roboto Condensed", sans-serif;
+  --font-work: "Work Sans", Helvetica;
+  --font-mono: "Noto Sans Mono", monospace;
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 834px;
+  --breakpoint-lg: 1025px;
+}
+
+.card {
+  background-color: hsla(242, 86%, 17%, 1);
+  background-image: radial-gradient(
+      at 40% 20%,
+      hsla(287, 64%, 53%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 57%, 17%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(291, 90%, 20%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 73%, 6%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(0, 81%, 2%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(289, 60%, 21%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(0, 81%, 2%, 1) 0px, transparent 50%);
+}
+
+/* globals.css */
+.divider {
+  @apply border-t border-coolAsh;
+}
