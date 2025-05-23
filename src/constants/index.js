@@ -43,9 +43,9 @@ import Collection from "../assets/create-coll.svg";
 import Earnings from "../assets/st-earning.svg";
 
 const Navlinks = [
-  { id: "1", title: "Marketplace", path: "Marketplace" },
-  { id: "2", title: "Rankings", path: "Rankings" },
-  { id: "3", title: "Connect a wallet", path: "Connect" },
+  { id: "1", title: "Marketplace", path: "Marketplace", condition: false },
+  { id: "2", title: "Rankings", path: "Rankings", condition: false },
+  { id: "3", title: "Profile", path: "Connect", condition: true },
 ];
 
 const heroStats = [

@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import constants from "../constants";
 import styles from "../styles";
 import { createThirdwebClient } from "thirdweb";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useActiveAccount } from "thirdweb/react";
 import { inAppWallet, createWallet } from "thirdweb/wallets";
 
 const Navbar = () => {
+  const account = useActiveAccount();
   const [toggleMenu, setToggleMenu] = useState(false);
   const Navlinks = constants.Navlinks;
 
@@ -50,11 +51,21 @@ const Navbar = () => {
       </a>
       <div className="lg:flex hidden font-semibold font-work gap-3">
         <ul className="list-none flex justify-end items-center flex-1 gap-2">
-          {Navlinks.map((n) => (
-            <li key={n.id} className={`${styles.buttonHover} p-[16px]`}>
-              <Link to={`/${n.path.toLowerCase()}`}>{n.title}</Link>
-            </li>
-          ))}
+          {Navlinks.map((n) => {
+            // Show link if:
+            // 1. account is true (show all), OR
+            // 2. the link's condition is false
+            // so first it Checks the "account" variable, if it's true, it will show all links. but if it's false...
+            // ...it will checks the "n.condition" property of the link, if it's false, it will show the link that is false
+            if (account || !n.condition) {
+              return (
+                <li key={n.id} className={`${styles.buttonHover} p-[16px]`}>
+                  <Link to={`/${n.path.toLowerCase()}`}>{n.title}</Link>
+                </li>
+              );
+            }
+            return null; // Don't render if neither condition is met
+          })}
         </ul>
         <ConnectButton
           client={client}
